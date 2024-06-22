@@ -14,11 +14,21 @@ const EXAMPLE_RESPONSE = {
 };
 
 export default function App() {
-  const [items, setItems] = useState([EXAMPLE_RESPONSE,EXAMPLE_RESPONSE]);
+  const [items, setItems] = useState([EXAMPLE_RESPONSE, EXAMPLE_RESPONSE]);
   return (
     <div className='app'>
       <h1>Hacker News Job Board</h1>
-      {items.length < 1 ? <p>Loading...</p> : <div>Job Listing</div>}
+      {items.length < 1 ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <div className='items' role='list'>
+            {items.map((item) => {
+              return <div>{item.title}</div>;
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
