@@ -1,5 +1,6 @@
 import './styles.css';
 import { useState } from 'react';
+import JobPosting from './components/jobposting';
 
 const ITEMS_PER_PAGE = 6;
 const API_ENDPOINT = 'https://hacker-news.firebaseio.com/v0';
@@ -24,7 +25,7 @@ export default function App() {
         <div>
           <div className='items' role='list'>
             {items.map((item) => {
-              return <div>{item.title}</div>;
+              return <JobPosting key={item.id} {...item} />;
             })}
           </div>
         </div>
